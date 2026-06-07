@@ -1,19 +1,16 @@
 using Game.Player;
+using Game.Player.ItemsPickUp;
 using UnityEngine;
 
 namespace Game.Diagnostic
 {
-    [AddComponentMenu("Game/Diagnostic/ItemsTest")]
-    public class ItemsTest : MonoBehaviour, IItemsPickUp
+    [AddComponentMenu("Game/Player/ItemsPickUp/Items/ItemsTest")]
+    public class ItemsTest : Items
     {
-        public void InteractOne()
-        {
+        public override void InteractOne() =>
             Debug.Log("TEST1");
-        }
 
-        public void InteractTwo()
-        {
+        public override void InteractTwo() =>
             Debug.Log("TEST2");
-        }
     }
 }
