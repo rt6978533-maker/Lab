@@ -57,13 +57,13 @@ namespace Game.Player.ItemsPickUp
         //Input (core logic)
         private void InteractOne(InputAction.CallbackContext c)
         {
-            if (_currentBufferObject == null || !TestRange()) return;
+            if (_currentBufferObject == null || !TestRange() || !_currentBufferObject.IsEnable) return;
 
             _currentBufferObject.InteractOne();
         }
         private void InteractTwo(InputAction.CallbackContext c)
         {
-            if (_currentBufferObject == null || !TestRange()) return;
+            if (_currentBufferObject == null || !TestRange() || !_currentBufferObject.IsEnable) return;
 
             _currentBufferObject.InteractTwo();
         }
@@ -72,10 +72,12 @@ namespace Game.Player.ItemsPickUp
         {
             if (_gameObjectPressE == null) return;
 
-            if (!_gameObjectPressE.activeSelf && TestRange()) {
+            if (!_gameObjectPressE.activeSelf && TestRange()
+                && _currentBufferObject.IsEnable) {
                 _gameObjectPressE?.SetActive(true);
             }
-            else if (_gameObjectPressE.activeSelf && !TestRange()) {
+            else if (_gameObjectPressE.activeSelf && 
+                (!TestRange() || !_currentBufferObject.IsEnable)) {
                 _gameObjectPressE.SetActive(false);
             }
         }

@@ -480,8 +480,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d074eb367dbae7c41a7b8d33ed78e164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Player.PlayerController
-  _speed: 1
-  _multipleSprint: 4
+  _speed: 3
+  _multipleSprint: 2
   _sensitivity: 1
   _head: {fileID: 2336703938351111244}
 --- !u!114 &4364360543161805592
