@@ -12,7 +12,7 @@ namespace Game.Player.ItemsPickUp
     }
 
     [RequireComponent(typeof(RaycastSystem))]
-    [AddComponentMenu("Game/Player/ItemsPickUp/Manager")]
+    [AddComponentMenu("Game/Player/ItemsPickUp/ItemsPickUpManager")]
     public class ItemsPickUpManager : MonoBehaviour, 
         IInitializable<PlayerInputSystem>, IEnterRaycast, IExitRaycast
     {
@@ -20,25 +20,29 @@ namespace Game.Player.ItemsPickUp
 
         private Items _currentBufferObject;
         private PlayerInputSystem _input;
+        private bool _isInputEnable = false;
 
         public void Init(PlayerInputSystem arg)
         {
             _input = arg;
+            OnEnable();
         }
 
         private void OnEnable()
         {
-            if (_input == null) return;
+            if (_input == null || _isInputEnable) return;
 
             _input.Player.Interact.performed += InteractOne;
             _input.Player.InteractTwo.performed += InteractTwo;
+            _isInputEnable = true;
         }
         private void OnDisable()
         {
-            if (_input == null) return;
+            if (_input == null || !_isInputEnable) return;
 
             _input.Player.Interact.performed -= InteractOne;
             _input.Player.InteractTwo.performed -= InteractTwo;
+            _isInputEnable = false;
         }
 
         private bool IsRange(Vector3 pos1, Vector3 pos2, float distance) =>
@@ -86,7 +90,6 @@ namespace Game.Player.ItemsPickUp
         public void EnterRaycast(GameObject obj) {
             if (obj.TryGetComponent(out Items i)) {
                 _currentBufferObject = i;
-                
             }
         }
         public void ExitRaycast(GameObject obj) {

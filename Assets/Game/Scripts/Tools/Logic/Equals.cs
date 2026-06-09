@@ -21,6 +21,10 @@ namespace Tools.Logic
         {
             if (Value == value) OnTrue?.Invoke();
         }
+        public void EqualsMethod(byte value)
+        {
+            if (Value == value) OnTrue?.Invoke();
+        }
         public void EqualsMethod(long value)
         {
             if (Value == value) OnTrue?.Invoke();

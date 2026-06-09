@@ -29,6 +29,9 @@ MonoBehaviour:
   - m_enabled: 1
     m_path: Assets/Game/Scenes/Addition/MapChapterOne.unity
     m_guid: 04f4208f198de77439374bb8d5f14c01
+  - m_enabled: 1
+    m_path: Assets/Game/Scenes/ExampleScene.unity
+    m_guid: 439ac639f4653bd4e9ac850dbf3c49ff
   m_HasScriptingDefines: 0
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:

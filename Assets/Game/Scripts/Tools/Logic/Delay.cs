@@ -14,6 +14,8 @@ namespace Tools.Logic
 
         public void StartDelay()
         {
+            if (_sleeping != null) return;
+
             _sleeping = StartCoroutine(Sleeping());
         }
 
@@ -28,6 +30,7 @@ namespace Tools.Logic
         {
             yield return new WaitForSeconds(_delay);
             OnInvoke?.Invoke();
+            _sleeping = null;
         }
     }
 }

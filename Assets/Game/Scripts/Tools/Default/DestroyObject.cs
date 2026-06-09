@@ -8,5 +8,6 @@ namespace Tools.Default
     public class DestroyObject : MonoBehaviour, IDestroy
     {
         public virtual void Destroy() => Destroy(gameObject);
+        public virtual void DestroyGameObject(GameObject arg) => Destroy(arg);
     }
 }
