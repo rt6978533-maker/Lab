@@ -9,7 +9,7 @@ namespace Game.Diagnostic
     {
         public void Destroy() => Destroy(gameObject);
 
-        public override void InteractOne() => Destroy();
-        public override void InteractTwo() => Destroy();
+        public override void InteractOne(GameObject plr) => Destroy();
+        public override void InteractTwo(GameObject plr) => Destroy();
     }
 }

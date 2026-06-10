@@ -7,8 +7,8 @@ using UnityEngine.InputSystem;
 namespace Game.Player.ItemsPickUp
 {
     interface IItemsPickUp {
-        void InteractOne();
-        void InteractTwo();
+        void InteractOne(GameObject plr);
+        void InteractTwo(GameObject plr);
     }
 
     [RequireComponent(typeof(RaycastSystem))]
@@ -63,13 +63,13 @@ namespace Game.Player.ItemsPickUp
         {
             if (_currentBufferObject == null || !TestRange() || !_currentBufferObject.IsEnable) return;
 
-            _currentBufferObject.InteractOne();
+            _currentBufferObject.InteractOne(gameObject);
         }
         private void InteractTwo(InputAction.CallbackContext c)
         {
             if (_currentBufferObject == null || !TestRange() || !_currentBufferObject.IsEnable) return;
 
-            _currentBufferObject.InteractTwo();
+            _currentBufferObject.InteractTwo(gameObject);
         }
 
         private void Update()

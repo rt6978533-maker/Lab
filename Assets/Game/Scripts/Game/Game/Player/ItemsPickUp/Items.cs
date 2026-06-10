@@ -9,8 +9,8 @@ namespace Game.Player.ItemsPickUp
 
         [HideInInspector] public bool IsEnable = true;
 
-        public virtual void InteractOne() { }
-        public virtual void InteractTwo() { }
+        public virtual void InteractOne(GameObject plr) { }
+        public virtual void InteractTwo(GameObject plr) { }
 
         public virtual void Disable() { IsEnable = false; }
         public virtual void Enable() { IsEnable = true; }

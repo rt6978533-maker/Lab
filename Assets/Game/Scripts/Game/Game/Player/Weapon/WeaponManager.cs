@@ -5,9 +5,9 @@ namespace Game.Player.Weapon
     [AddComponentMenu("Game/Player/Weapon/WeaponManager")]
     public class WeaponManager : MonoBehaviour
     {
-        public Weapon[] Weapons;
+        public Items[] Weapons;
 
-        private Weapon GetWeapon(int index)
+        private Items GetWeapon(int index)
         {
             if (Weapons.Length <= index || index < 0)
             {
@@ -15,11 +15,11 @@ namespace Game.Player.Weapon
                 return null;
             }
 
-            Weapon weapon = Weapons[index];
+            Items weapon = Weapons[index];
 
             if (weapon == null)
             {
-                Debug.LogError($"[WeaponManager][GetWeapon] Weapons[{index}] is null.");
+                Debug.LogError($"[WeaponManager][GetWeapon] Items[{index}] is null.");
                 return null;
             }
 

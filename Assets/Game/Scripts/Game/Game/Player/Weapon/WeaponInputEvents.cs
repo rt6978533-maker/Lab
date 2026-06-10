@@ -10,7 +10,7 @@ namespace Game.Player.Weapon
     [RequireComponent(typeof(PlayerInject))]
     public class WeaponInputEvents : MonoBehaviour, IInitializable<PlayerInputSystem>
     {
-        public UnityEvent OnFire;
+        public UnityEvent OnFire, OnDrop;
 
         private PlayerInputSystem _input;
         private bool _state = false;
@@ -27,6 +27,7 @@ namespace Game.Player.Weapon
 
             _state = true;
             _input.Player.Attack.performed += Fire;
+            _input.Player.Drop.performed += Drop;
         }
         private void OnDisable()
         {
@@ -34,7 +35,9 @@ namespace Game.Player.Weapon
 
             _state = false;
             _input.Player.Attack.performed -= Fire;
+            _input.Player.Drop.performed -= Drop;
         }
         private void Fire(InputAction.CallbackContext c) => OnFire?.Invoke();
+        private void Drop(InputAction.CallbackContext c) => OnDrop?.Invoke();
     }
 }

@@ -6,13 +6,13 @@ namespace Game.Player.ItemsPickUp
     [AddComponentMenu("Game/Player/ItemsPickUp/Items/ItemsLogic")]
     public class ItemsLogic : Items
     {
-        public UnityEvent OnInteractOne, OnInteractTwo;
+        public UnityEvent<GameObject> OnInteractOne, OnInteractTwo;
 
-        public override void InteractOne() { 
-            OnInteractOne?.Invoke();
+        public override void InteractOne(GameObject plr) { 
+            OnInteractOne?.Invoke(plr);
         }
-        public override void InteractTwo() { 
-            OnInteractTwo?.Invoke();
+        public override void InteractTwo(GameObject plr) { 
+            OnInteractTwo?.Invoke(plr);
         }
     }
 }
