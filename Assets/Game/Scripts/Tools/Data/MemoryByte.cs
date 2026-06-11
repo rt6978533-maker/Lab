@@ -15,7 +15,7 @@ namespace Tools.Data
             OnChange?.Invoke(value);
         }
         public byte GetValue() => _value;
-        public void Add(byte value) { 
+        public void Add(byte value) {
             _value += value;
             OnChange?.Invoke(value);
         }

@@ -503,7 +503,7 @@ Transform:
   m_GameObject: {fileID: 230547606}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 4}
+  m_LocalPosition: {x: 9, y: 1, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -913,7 +913,7 @@ Transform:
   m_GameObject: {fileID: 448156551}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: 1, z: 4}
+  m_LocalPosition: {x: 9, y: 1, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1219,8 +1219,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 666886519}
-  - component: {fileID: 666886521}
-  - component: {fileID: 666886520}
+  - component: {fileID: 666886524}
+  - component: {fileID: 666886523}
   - component: {fileID: 666886522}
   m_Layer: 0
   m_Name: Test
@@ -1244,7 +1244,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 636330667}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &666886520
+--- !u!114 &666886522
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1253,10 +1253,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 666886518}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40502958567e2eb49942f6171b58f3ef, type: 3}
+  m_Script: {fileID: 11500000, guid: 490171d91cddbe24ba140b3a3c43c77e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Tools.Logic.Equals
-  Value: 2
+  m_EditorClassIdentifier: Assembly-CSharp::Tools.Default.DestroyObject
+--- !u!114 &666886523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666886518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 468c3ecc2a70dd54aa4854a234016b55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tools.Logic.LogicTest
+  _type: 4
   OnTrue:
     m_PersistentCalls:
       m_Calls:
@@ -1272,7 +1284,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &666886521
+  Value: 2
+--- !u!114 &666886524
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1281,15 +1294,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 666886518}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 162ca77f1c259e448a41e587297172ca, type: 3}
+  m_Script: {fileID: 11500000, guid: f18c4afc55b5d8041950a29c33b51fdb, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Tools.Data.MemoryByte
+  m_EditorClassIdentifier: Assembly-CSharp::Tools.Data.MemoryInt
   OnChange:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 666886520}
-        m_TargetAssemblyTypeName: Tools.Logic.Equals, Assembly-CSharp
-        m_MethodName: EqualsMethod
+      - m_Target: {fileID: 666886523}
+        m_TargetAssemblyTypeName: Tools.Logic.LogicTest, Assembly-CSharp
+        m_MethodName: Test
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1299,18 +1312,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &666886522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 666886518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 490171d91cddbe24ba140b3a3c43c77e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Tools.Default.DestroyObject
 --- !u!1 &881472935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1374,8 +1375,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 666886521}
-        m_TargetAssemblyTypeName: Tools.Data.MemoryByte, Assembly-CSharp
+      - m_Target: {fileID: 666886524}
+        m_TargetAssemblyTypeName: Tools.Data.MemoryInt, Assembly-CSharp
         m_MethodName: Remove
         m_Mode: 3
         m_Arguments:
@@ -1429,8 +1430,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 666886521}
-        m_TargetAssemblyTypeName: Tools.Data.MemoryByte, Assembly-CSharp
+      - m_Target: {fileID: 666886524}
+        m_TargetAssemblyTypeName: Tools.Data.MemoryInt, Assembly-CSharp
         m_MethodName: Add
         m_Mode: 3
         m_Arguments:
@@ -2646,7 +2647,7 @@ Transform:
   m_GameObject: {fileID: 1522846998}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.83, y: 1, z: 4}
+  m_LocalPosition: {x: 9, y: 1, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2715,8 +2716,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 666886521}
-        m_TargetAssemblyTypeName: Tools.Data.MemoryByte, Assembly-CSharp
+      - m_Target: {fileID: 666886524}
+        m_TargetAssemblyTypeName: Tools.Data.MemoryInt, Assembly-CSharp
         m_MethodName: Remove
         m_Mode: 3
         m_Arguments:
@@ -2770,8 +2771,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 666886521}
-        m_TargetAssemblyTypeName: Tools.Data.MemoryByte, Assembly-CSharp
+      - m_Target: {fileID: 666886524}
+        m_TargetAssemblyTypeName: Tools.Data.MemoryInt, Assembly-CSharp
         m_MethodName: Add
         m_Mode: 3
         m_Arguments:
@@ -3048,7 +3049,7 @@ Transform:
   m_GameObject: {fileID: 1919760609}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.35, y: 1, z: 4}
+  m_LocalPosition: {x: 9, y: 1, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3067,6 +3068,7 @@ GameObject:
   - component: {fileID: 1969645776}
   - component: {fileID: 1969645775}
   - component: {fileID: 1969645774}
+  - component: {fileID: 1969645778}
   - component: {fileID: 1969645773}
   m_Layer: 0
   m_Name: PickUpItems (2)
@@ -3133,7 +3135,19 @@ MonoBehaviour:
         m_CallState: 2
   OnInteractTwo:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1969645778}
+        m_TargetAssemblyTypeName: Tools.Logic.Operation, Assembly-CSharp
+        m_MethodName: Calculate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!65 &1969645775
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3212,6 +3226,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1969645771}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1969645778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969645771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5171e0865f1707a4390d352e67776b27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tools.Logic.Operation
+  Value1: 5
+  Value2: 3
+  OnResult:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1969645773}
+        m_TargetAssemblyTypeName: Tools.Default.Print, Assembly-CSharp
+        m_MethodName: Log
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _typeOperation: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

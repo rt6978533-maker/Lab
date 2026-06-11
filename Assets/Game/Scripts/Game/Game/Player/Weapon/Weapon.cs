@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace Game.Player.Weapon
 {
     public abstract class Weapon : Items, IFireable
