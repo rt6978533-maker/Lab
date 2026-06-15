@@ -300,6 +300,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 638971814598567974, guid: 943ed3a42fe46fb42a1d4c0f5d6fdfb4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 638971814598567974, guid: 943ed3a42fe46fb42a1d4c0f5d6fdfb4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 638971814598567974, guid: 943ed3a42fe46fb42a1d4c0f5d6fdfb4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 638971814598567974, guid: 943ed3a42fe46fb42a1d4c0f5d6fdfb4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -584,9 +596,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d38b3fd2ee2fa6f4cac4aabcac97c323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tools.Addition.AnimationMove
-  Value: {x: 0, y: 2, z: 0}
-  _minRange: 0.1
+  Value: {x: 0, y: 5, z: 0}
+  _speed: 0.05
   _typeValue: 0
+  _curveAnim:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.39197794
+      value: 0.32860708
+      inSlope: 2.944514
+      outSlope: 2.944514
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.055118423
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &262267092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1098,8 +1143,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tools.Addition.AnimationMove
   Value: {x: 0, y: 2, z: 0}
-  _minRange: 0.1
+  _speed: 0.01
   _typeValue: 0
+  _curveAnim:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &636330669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1937,8 +2006,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tools.Addition.AnimationMove
   Value: {x: 0, y: 2, z: 0}
-  _minRange: 0.1
+  _speed: 0.01
   _typeValue: 0
+  _curveAnim:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &1251919964
 MonoBehaviour:
   m_ObjectHideFlags: 0

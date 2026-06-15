@@ -5,7 +5,7 @@ namespace Game.Player.ItemsPickUp
     public abstract class Items : MonoBehaviour, IItemsPickUp
     {
         [Min(1.0f)]
-        public float DistanceInteract = 1;
+        public float DistanceInteract = 7;
 
         [HideInInspector] public bool IsEnable = true;
 

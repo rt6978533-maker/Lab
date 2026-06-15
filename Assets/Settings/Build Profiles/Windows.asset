@@ -27,8 +27,11 @@ MonoBehaviour:
     m_path: Assets/Game/Scenes/Game.unity
     m_guid: db9dd072f510e9841a6d83ab21cb0a16
   - m_enabled: 1
-    m_path: Assets/Game/Scenes/Addition/MapChapterOne.unity
+    m_path: Assets/Game/Scenes/Addition/MapChapterOneLevelOne.unity
     m_guid: 04f4208f198de77439374bb8d5f14c01
+  - m_enabled: 1
+    m_path: Assets/Game/Scenes/Addition/MapChapterOneLevelTwo.unity
+    m_guid: 4a205825e497cc34f81400f1b704b209
   - m_enabled: 1
     m_path: Assets/Game/Scenes/ExampleScene.unity
     m_guid: 439ac639f4653bd4e9ac850dbf3c49ff

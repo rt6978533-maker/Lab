@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b81dfe263eac8054ea5cf6af43e18edf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tools.Default.SceneLoader
-  _sceneName: MapChapterOneLevelOne
+  _sceneName: MapChapterOne
   _loadType: 1
 --- !u!114 &1460768332
 MonoBehaviour:
