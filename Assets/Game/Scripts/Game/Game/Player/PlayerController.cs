@@ -10,12 +10,22 @@ namespace Game.Player
     {
         [Header("Look settings")]
         [SerializeField] private float _sensitivity = 1;
+        [SerializeField] private int _passedFrameRate = 5;
         [SerializeField] private Transform _head;
 
         private float _lookY, _lookX;
 
+        private ushort _frameCurrent;
+
         private ModuleController<Vector2> _move, _look;
         private ModuleController<bool> _sprint;
+
+        protected override void OnAwake()
+        {
+            Vector3 angles = transform.localEulerAngles;
+            _lookY = angles.y;
+            _lookX = 0;
+        }
 
         public void Init(PlayerInputSystem arg)
         {
@@ -66,6 +76,10 @@ namespace Game.Player
         private void Update() {
             //Move
             Move();
+
+            _frameCurrent++;
+
+            if (_frameCurrent <= _passedFrameRate) return;
 
             //Look
             LookController(_look.GetValue());

@@ -10,8 +10,12 @@ namespace GaS.Player
 
         protected CharacterController _charactController;
 
-        private void Awake() => _charactController = GetComponent<CharacterController>();
-
+        private void Awake()
+        {
+            _charactController = GetComponent<CharacterController>();
+            OnAwake();
+        }
+        protected virtual void OnAwake() { }
         protected Vector3 GetMoveDir(Vector2 moveInput)
         {
             Vector3 dir = transform.forward * moveInput.y + transform.right * moveInput.x;
