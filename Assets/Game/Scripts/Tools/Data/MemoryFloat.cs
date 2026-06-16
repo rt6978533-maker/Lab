@@ -25,7 +25,7 @@ namespace Tools.Data
         public void Remove(float value)
         {
             _value -= value;
-            OnChange?.Invoke(value);
+            OnChange?.Invoke(_value);
         }
     }
 }

@@ -17,7 +17,7 @@ namespace Tools.Addition
         [SerializeField] private TypeValueAnimation _typeValue;
         [SerializeField] private AnimationCurve _curveAnim;
 
-        private Vector3 _oldPos, _newPos, _currentPos;
+        private Vector3 _oldPos, _newPos, _targetPos, _startPos;
         private float _valueStep;
         private Vector3 GetNewPos()
         {
@@ -37,13 +37,15 @@ namespace Tools.Addition
         [ContextMenu("Play")]
         public void Play() {
             IsPlay = true;
-            _currentPos = _newPos;
+            _targetPos = _newPos;
+            _startPos = _oldPos;
             _valueStep = 0;
         }
         [ContextMenu("PlayRevert")]
         public void PlayRevert() {
             IsPlay = true;
-            _currentPos = _oldPos;
+            _targetPos = _oldPos;
+            _startPos = _newPos;
             _valueStep = 0;
         }
         [ContextMenu("Revert")]
@@ -64,12 +66,14 @@ namespace Tools.Addition
 
                 if (_valueStep == 1)
                 {
-                    transform.position = _currentPos;
+                    transform.position = _targetPos;
                     IsPlay = false;
                 }
 
-                transform.position = Vector3.Lerp(
-                    transform.position, _currentPos, _curveAnim.Evaluate(_valueStep));
+                transform.position =
+                    Vector3.Lerp(_startPos,
+                        _targetPos,
+                        _curveAnim.Evaluate(_valueStep));
             }
         }
     }
