@@ -10,8 +10,7 @@ namespace Game.Player.Weapon
         private WeaponManager GetManager(GameObject plr)
         {
             if (plr.TryGetComponent(out WeaponManager manager)) return manager;
-            else
-            {
+            else {
                 Debug.LogError("[WeaponController][GetManager] Player GameObject is not exist WeaponManager.");
                 return null;
             }

@@ -6,16 +6,16 @@ namespace Game
 {
     [AddComponentMenu("Game/GameManager")]
     [RequireComponent(typeof(ISceneLoader))]
-    [RequireComponent(typeof(ICreatable))]
+    [RequireComponent(typeof(CreateObject))]
     public class GameManager : MonoBehaviour
     {
-        private ICreatable _createPlayer;
+        private CreateObject _createPlayer;
         private ISceneLoader _loader;
 
         private void Awake()
         {
             _loader = GetComponent<ISceneLoader>();
-            _createPlayer = GetComponent<ICreatable>();
+            _createPlayer = GetComponent<CreateObject>();
         }
 
         private void Start() => 

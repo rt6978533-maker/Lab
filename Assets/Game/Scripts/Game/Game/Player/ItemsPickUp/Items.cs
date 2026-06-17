@@ -7,7 +7,7 @@ namespace Game.Player.ItemsPickUp
         [Min(1.0f)]
         public float DistanceInteract = 7;
 
-        [HideInInspector] public bool IsEnable = true;
+        public bool IsEnable = true;
 
         public virtual void InteractOne(GameObject plr) { }
         public virtual void InteractTwo(GameObject plr) { }

@@ -11,14 +11,17 @@ namespace Tools.Addition
         }
 
         public Vector3 Value;
-        [HideInInspector] public bool IsPlay { get; private set; }
 
         [SerializeField] private float _speed = 0.01f;
         [SerializeField] private TypeValueAnimation _typeValue;
         [SerializeField] private AnimationCurve _curveAnim;
 
         private Vector3 _oldPos, _newPos, _targetPos, _startPos;
+
+        private bool _isPlay = false;
+
         private float _valueStep;
+
         private Vector3 GetNewPos()
         {
             switch (_typeValue)
@@ -36,14 +39,14 @@ namespace Tools.Addition
 
         [ContextMenu("Play")]
         public void Play() {
-            IsPlay = true;
+            _isPlay = true;
             _targetPos = _newPos;
             _startPos = _oldPos;
             _valueStep = 0;
         }
         [ContextMenu("PlayRevert")]
         public void PlayRevert() {
-            IsPlay = true;
+            _isPlay = true;
             _targetPos = _oldPos;
             _startPos = _newPos;
             _valueStep = 0;
@@ -55,19 +58,19 @@ namespace Tools.Addition
 
         [ContextMenu("Stop")]
         public void Stop() {
-            IsPlay = false;
+            _isPlay = false;
         }
 
         private void Update()
         {
-            if (IsPlay) {
+            if (_isPlay) {
                 _valueStep += Time.deltaTime * _speed;
                 _valueStep = Mathf.Clamp(_valueStep, 0, 1);
 
                 if (_valueStep == 1)
                 {
                     transform.position = _targetPos;
-                    IsPlay = false;
+                    _isPlay = false;
                 }
 
                 transform.position =

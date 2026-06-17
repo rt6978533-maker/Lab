@@ -597,7 +597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tools.Addition.AnimationMove
   Value: {x: 0, y: 5, z: 0}
-  _speed: 0.05
+  _speed: 0.33333334
   _typeValue: 0
   _curveAnim:
     serializedVersion: 2
@@ -1105,6 +1105,8 @@ GameObject:
   - component: {fileID: 636330670}
   - component: {fileID: 636330669}
   - component: {fileID: 636330668}
+  - component: {fileID: 636330673}
+  - component: {fileID: 636330674}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -1127,7 +1129,6 @@ Transform:
   m_Children:
   - {fileID: 1903235817}
   - {fileID: 881472936}
-  - {fileID: 666886519}
   m_Father: {fileID: 975208917}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &636330668
@@ -1143,7 +1144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tools.Addition.AnimationMove
   Value: {x: 0, y: 2, z: 0}
-  _speed: 0.01
+  _speed: 0.25
   _typeValue: 0
   _curveAnim:
     serializedVersion: 2
@@ -1279,66 +1280,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 636330666}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &666886518
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 666886519}
-  - component: {fileID: 666886524}
-  - component: {fileID: 666886523}
-  - component: {fileID: 666886522}
-  m_Layer: 0
-  m_Name: Test
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &666886519
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 666886518}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 636330667}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &666886522
+--- !u!114 &636330673
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 666886518}
+  m_GameObject: {fileID: 636330666}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 490171d91cddbe24ba140b3a3c43c77e, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f4bb3b13e2e67c49a3d78a99084afc7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Tools.Default.DestroyObject
---- !u!114 &666886523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 666886518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 468c3ecc2a70dd54aa4854a234016b55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Tools.Logic.LogicTest
-  _type: 4
-  OnTrue:
+  m_EditorClassIdentifier: Assembly-CSharp::Game.DoorsLogic
+  Invoke:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 636330668}
@@ -1353,34 +1307,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  Value: 2
---- !u!114 &666886524
+  _counterTest: 2
+  _multiInvoke: 1
+--- !u!114 &636330674
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 666886518}
+  m_GameObject: {fileID: 636330666}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f18c4afc55b5d8041950a29c33b51fdb, type: 3}
+  m_Script: {fileID: 11500000, guid: 490171d91cddbe24ba140b3a3c43c77e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Tools.Data.MemoryInt
-  OnChange:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 666886523}
-        m_TargetAssemblyTypeName: Tools.Logic.LogicTest, Assembly-CSharp
-        m_MethodName: Test
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  m_EditorClassIdentifier: Assembly-CSharp::Tools.Default.DestroyObject
 --- !u!1 &881472935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1444,10 +1384,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 666886524}
-        m_TargetAssemblyTypeName: Tools.Data.MemoryInt, Assembly-CSharp
-        m_MethodName: Remove
-        m_Mode: 3
+      - m_Target: {fileID: 636330673}
+        m_TargetAssemblyTypeName: Game.DoorsLogic, Assembly-CSharp
+        m_MethodName: CounterRemove
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1475,9 +1415,9 @@ MonoBehaviour:
   IsTriggered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 666886522}
+      - m_Target: {fileID: 636330674}
         m_TargetAssemblyTypeName: Tools.Default.DestroyObject, Assembly-CSharp
-        m_MethodName: DestroyGameObject
+        m_MethodName: DestroyTarget
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1499,10 +1439,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 666886524}
-        m_TargetAssemblyTypeName: Tools.Data.MemoryInt, Assembly-CSharp
-        m_MethodName: Add
-        m_Mode: 3
+      - m_Target: {fileID: 636330673}
+        m_TargetAssemblyTypeName: Game.DoorsLogic, Assembly-CSharp
+        m_MethodName: CounterAdd
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2006,7 +1946,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tools.Addition.AnimationMove
   Value: {x: 0, y: 2, z: 0}
-  _speed: 0.01
+  _speed: 0.33333334
   _typeValue: 0
   _curveAnim:
     serializedVersion: 2
@@ -2066,7 +2006,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1251919963}
         m_TargetAssemblyTypeName: Tools.Addition.AnimationMove, Assembly-CSharp
-        m_MethodName: Revert
+        m_MethodName: PlayRevert
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2809,10 +2749,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 666886524}
-        m_TargetAssemblyTypeName: Tools.Data.MemoryInt, Assembly-CSharp
-        m_MethodName: Remove
-        m_Mode: 3
+      - m_Target: {fileID: 636330673}
+        m_TargetAssemblyTypeName: Game.DoorsLogic, Assembly-CSharp
+        m_MethodName: CounterRemove
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2840,9 +2780,9 @@ MonoBehaviour:
   IsTriggered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 666886522}
+      - m_Target: {fileID: 636330674}
         m_TargetAssemblyTypeName: Tools.Default.DestroyObject, Assembly-CSharp
-        m_MethodName: DestroyGameObject
+        m_MethodName: DestroyTarget
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2864,10 +2804,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 666886524}
-        m_TargetAssemblyTypeName: Tools.Data.MemoryInt, Assembly-CSharp
-        m_MethodName: Add
-        m_Mode: 3
+      - m_Target: {fileID: 636330673}
+        m_TargetAssemblyTypeName: Game.DoorsLogic, Assembly-CSharp
+        m_MethodName: CounterAdd
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

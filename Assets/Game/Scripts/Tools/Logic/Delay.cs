@@ -8,9 +8,10 @@ namespace Tools.Logic
     public class Delay : MonoBehaviour
     {
         public UnityEvent OnInvoke;
+
         [SerializeField] private float _delay = 10;
 
-        Coroutine _sleeping;
+        private Coroutine _sleeping;
 
         public void StartDelay()
         {

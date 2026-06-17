@@ -16,23 +16,26 @@ namespace GaS.Player
             OnAwake();
         }
         protected virtual void OnAwake() { }
-        protected Vector3 GetMoveDir(Vector2 moveInput)
+
+        protected Vector3 GetDir(Vector2 moveInput)
         {
             Vector3 dir = transform.forward * moveInput.y + transform.right * moveInput.x;
             dir.y = 0;
             return dir.normalized;
         }
+
         protected virtual void Move(Vector2 moveInput)
         {
             if (_charactController == null) return;
 
-            _charactController.SimpleMove(GetMoveDir(moveInput) * _speed);
+            _charactController.SimpleMove(GetDir(moveInput) * _speed);
         }
+
         protected virtual void MoveSprint(Vector2 moveInput)
         {
             if (_charactController == null) return;
 
-            _charactController.SimpleMove(GetMoveDir(moveInput) * _speed * _multipleSprint);
+            _charactController.SimpleMove(GetDir(moveInput) * _speed * _multipleSprint);
         }
 
         public void Teleport(Vector3 newPos)

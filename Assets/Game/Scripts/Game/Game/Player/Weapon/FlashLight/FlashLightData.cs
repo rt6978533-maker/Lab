@@ -20,14 +20,18 @@ namespace Game.Player.Weapon.Flashlight
             if (value < 0) return;
 
             Energy += value;
+
             Energy = Mathf.Clamp(Energy, 0, MaxEnergy);
+
             _changeLight?.Change(Energy);
         }
 
         private void Update()
         {
             Energy -= _energyRate * Time.deltaTime;
+
             Energy = Mathf.Clamp(Energy, 0, MaxEnergy);
+
             _changeLight?.Change(Energy);
         }
     }

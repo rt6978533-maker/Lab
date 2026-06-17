@@ -67,7 +67,7 @@ namespace Game.Player
 
             Vector2 input = _move.GetValue();
 
-            if (_sprint == null) Move(input);
+            if (_sprint == null) { Move(input); return; }
 
             if (!_sprint.GetValue()) Move(input);
             else MoveSprint(input);

@@ -6,14 +6,9 @@ namespace Tools.Default
     {
         All, Position, Rotation, World, Parent
     }
-    interface ICreatable
-    {
-        void Create();
-        GameObject GetCreate();
-    }
 
     [AddComponentMenu("Tools/Default/Create")]
-    public class CreateObject : MonoBehaviour, ICreatable
+    public class CreateObject : MonoBehaviour
     {
         [SerializeField] private GameObject _prefab;
         [Header("Value create: ")]
