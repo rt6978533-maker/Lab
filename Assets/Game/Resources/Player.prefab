@@ -487,6 +487,7 @@ MonoBehaviour:
   _speed: 3
   _multipleSprint: 2
   _sensitivity: 0.5
+  _passedFrameRate: 5
   _head: {fileID: 2336703938351111244}
 --- !u!114 &4364360543161805592
 MonoBehaviour:
@@ -678,7 +679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Player.Weapon.EnergyWeapon
   _dropedItems: {fileID: 0}
-  _strangeBulledForce: 5
+  _strangeBulledForce: 15
 --- !u!114 &1843105998337549864
 MonoBehaviour:
   m_ObjectHideFlags: 0
