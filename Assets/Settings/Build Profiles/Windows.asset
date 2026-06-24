@@ -24,9 +24,6 @@ MonoBehaviour:
     m_path: Assets/Game/Scenes/Menu.unity
     m_guid: 99c9720ab356a0642a771bea13969a05
   - m_enabled: 1
-    m_path: Assets/Game/Scenes/Game.unity
-    m_guid: db9dd072f510e9841a6d83ab21cb0a16
-  - m_enabled: 1
     m_path: Assets/Game/Scenes/Addition/MapChapterOneLevelOne.unity
     m_guid: 04f4208f198de77439374bb8d5f14c01
   - m_enabled: 1
