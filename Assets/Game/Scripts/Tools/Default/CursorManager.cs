@@ -7,6 +7,7 @@ namespace Tools.Default
     {
         [SerializeField] private CursorLockMode _mode;
         [SerializeField] private bool _isVisible = true;
+        [SerializeField] private bool _enableInStart = true;
 
         /// <summary>
         /// Set cursor in args settings.
@@ -22,6 +23,6 @@ namespace Tools.Default
         [ContextMenu("SetCursor")]
         public void SetCursor() => SetCursor(_mode, _isVisible);
 
-        private void Start() => SetCursor();
+        private void Start() { if (_enableInStart) SetCursor(); }
     }
 }

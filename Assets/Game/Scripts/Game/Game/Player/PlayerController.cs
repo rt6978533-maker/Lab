@@ -46,6 +46,18 @@ namespace Game.Player
             _look = look;
             _sprint = sprint;
         }
+        public void Enable()
+        {
+            _move?.Enable();
+            _look?.Enable();
+            _sprint?.Enable();
+        }
+        public void Disable()
+        {
+            _move?.Disable();
+            _look?.Disable();
+            _sprint?.Disable();
+        }
 
         private void LookController(Vector2 lookInput)
         {
