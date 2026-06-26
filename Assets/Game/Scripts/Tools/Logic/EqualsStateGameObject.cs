@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Tools.Addition
+namespace Tools.Logic
 {
-    [AddComponentMenu("Tools/Addition/EqualsStateGameObject")]
+    [AddComponentMenu("Tools/Logic/EqualsStateGameObject")]
     public class EqualsStateGameObject : MonoBehaviour
     {
         [SerializeField] private bool _equalsState;
