@@ -17,13 +17,19 @@ namespace Game.Console
 
             object[] value = new object[parameters.Length];
 
+            bool isExit = false;
+
             for (int index = 0; index < parameters.Length; index++) {
-                value[index] = parametersConsole[index];
+                try
+                {
+                    value[index] = Convert.ChangeType(parametersConsole[index], parameters[index].ParameterType);
+                } catch (Exception e) { Debug.LogError(e); isExit = true; }
             }
 
-
+            if (isExit) return null;
             return value;
         }
+
         private IEnumerable<MethodInfo> GetMethodInAttrib(Type customAttrib)
         {
             Assembly assembly = Assembly.GetExecutingAssembly();
@@ -38,33 +44,50 @@ namespace Game.Console
                 ).Where(method => method.IsDefined(customAttrib, true));
         }
 
+        private void InvokeMethodByType(MethodInfo methodInfo, string args)
+        {
+            if (methodInfo.IsStatic)
+            {
+                InvokeMethod(null, methodInfo, args);
+            }
+            else
+            {
+                UnityEngine.Object targetObject = FindAnyObjectByType(methodInfo.DeclaringType);
+
+                if (targetObject != null)
+                {
+                    InvokeMethod(targetObject, methodInfo, args);
+                }
+            }
+        }
+        private void InvokeMethod(object obj, MethodInfo methodInfo, string argsCommand)
+        {
+            ParameterInfo[] parameters = methodInfo.GetParameters();
+            if (parameters.Length == 0)
+            {
+                methodInfo.Invoke(obj, null);
+                return;
+            }
+            else
+            {
+                object[] args = GetArgs(parameters, argsCommand.Split(" ; "));
+                if (args == null) return;
+
+                methodInfo.Invoke(obj, args);
+                return;
+            }
+        }
+
         public void InvokeCommand(string command)
         {
             if (string.IsNullOrEmpty(command)) return;
             string[] commandAndArgs = command.Split(": ");
             if (commandAndArgs.Length == 0) return;
+            Debug.Log(commandAndArgs[0]);
 
             if (Command.TryGetValue(commandAndArgs[0], out MethodInfo methodInfo)) {
-
-                Type currentClass = methodInfo.DeclaringType;
-
-                UnityEngine.Object targetObject = FindAnyObjectByType(currentClass);
-
-                if (targetObject != null)
-                {
-                    ParameterInfo[] parameters = methodInfo.GetParameters();
-                    if (parameters.Length == 0)
-                    {
-                        methodInfo.Invoke(targetObject, null);
-                        return;
-                    }
-                    else
-                    {
-                        if (commandAndArgs.Length < 2) return;
-                        methodInfo.Invoke(targetObject, GetArgs(parameters, commandAndArgs[1].Split(" ; ")));
-                        return;
-                    }
-                }
+                if (commandAndArgs.Length < 2) InvokeMethodByType(methodInfo, "");
+                else InvokeMethodByType(methodInfo, commandAndArgs[1]);
             }
         }
 

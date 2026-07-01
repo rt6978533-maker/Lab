@@ -1,0 +1,38 @@
+using Game.Player.Target;
+using UnityEngine;
+namespace Game.Console.Command
+{
+    public class PlayerCommand : MonoBehaviour
+    {
+        [SerializeField] private TargetSystem _targetSystem;
+        [SerializeField] private Transform _camera;
+
+        [ConsoleCommand("player_target")]
+        public void SetTarget(string message)
+        {
+            _targetSystem.SetTarget(message);
+        }
+
+        [ConsoleCommand("ray_cast-destroy")]
+        public void RaycastDestroy()
+        {
+            Ray ray = new Ray(_camera.position, _camera.forward);
+
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {
+                Destroy(hit.transform.gameObject);
+            }
+        }
+
+        [ConsoleCommand("ray_cast-destroy_in_time")]
+        public void RaycastDestroyInTime(float time)
+        {
+            Ray ray = new Ray(_camera.position, _camera.forward);
+
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {
+                Destroy(hit.transform.gameObject, time);
+            }
+        }
+    }
+}

@@ -165,6 +165,15 @@ namespace GaS.Player
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Console"",
+                    ""type"": ""Button"",
+                    ""id"": ""e3085dc6-a2f3-4ee7-be4a-f76f90014361"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -299,6 +308,17 @@ namespace GaS.Player
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""74326f3a-21e9-4877-a0af-28907343398e"",
+                    ""path"": ""<Keyboard>/backquote"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Console"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -315,6 +335,7 @@ namespace GaS.Player
             m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
             m_Player_Drop = m_Player.FindAction("Drop", throwIfNotFound: true);
             m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+            m_Player_Console = m_Player.FindAction("Console", throwIfNotFound: true);
         }
 
         ~@PlayerInputSystem()
@@ -403,6 +424,7 @@ namespace GaS.Player
         private readonly InputAction m_Player_Attack;
         private readonly InputAction m_Player_Drop;
         private readonly InputAction m_Player_Pause;
+        private readonly InputAction m_Player_Console;
         /// <summary>
         /// Provides access to input actions defined in input action map "Player".
         /// </summary>
@@ -446,6 +468,10 @@ namespace GaS.Player
             /// Provides access to the underlying input action "Player/Pause".
             /// </summary>
             public InputAction @Pause => m_Wrapper.m_Player_Pause;
+            /// <summary>
+            /// Provides access to the underlying input action "Player/Console".
+            /// </summary>
+            public InputAction @Console => m_Wrapper.m_Player_Console;
             /// <summary>
             /// Provides access to the underlying input action map instance.
             /// </summary>
@@ -496,6 +522,9 @@ namespace GaS.Player
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @Console.started += instance.OnConsole;
+                @Console.performed += instance.OnConsole;
+                @Console.canceled += instance.OnConsole;
             }
 
             /// <summary>
@@ -531,6 +560,9 @@ namespace GaS.Player
                 @Pause.started -= instance.OnPause;
                 @Pause.performed -= instance.OnPause;
                 @Pause.canceled -= instance.OnPause;
+                @Console.started -= instance.OnConsole;
+                @Console.performed -= instance.OnConsole;
+                @Console.canceled -= instance.OnConsole;
             }
 
             /// <summary>
@@ -627,6 +659,13 @@ namespace GaS.Player
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnPause(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "Console" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnConsole(InputAction.CallbackContext context);
         }
     }
 }
