@@ -21,7 +21,7 @@ namespace Game.Player.Weapon
             OnEnable();
         }
 
-        private void OnEnable()
+        public void OnEnable()
         {
             if (_input == null || _state) return;
 
@@ -29,7 +29,7 @@ namespace Game.Player.Weapon
             _input.Player.Attack.performed += Fire;
             _input.Player.Drop.performed += Drop;
         }
-        private void OnDisable()
+        public void OnDisable()
         {
             if (_input == null || !_state) return;
 

@@ -13,7 +13,7 @@ namespace Game.Console.Command
             _targetSystem.SetTarget(message);
         }
 
-        [ConsoleCommand("ray_cast-destroy")]
+        [ConsoleCommand("raycast-destroy")]
         public void RaycastDestroy()
         {
             Ray ray = new Ray(_camera.position, _camera.forward);
@@ -24,7 +24,7 @@ namespace Game.Console.Command
             }
         }
 
-        [ConsoleCommand("ray_cast-destroy_in_time")]
+        [ConsoleCommand("raycast-destroy_in_time")]
         public void RaycastDestroyInTime(float time)
         {
             Ray ray = new Ray(_camera.position, _camera.forward);
