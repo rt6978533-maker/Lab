@@ -10,6 +10,7 @@ namespace Game.Console
     public class ConsoleManager : MonoBehaviour
     {
         public Dictionary<string, MethodInfo> Command;
+        public List<string> NameCommands { get; private set; }
 
         private object[] GetArgs(ParameterInfo[] parameters, string[] parametersConsole)
         {
@@ -93,15 +94,17 @@ namespace Game.Console
 
         private void Awake()
         {
+            NameCommands = new();
             Command = new Dictionary<string, MethodInfo>();
 
-            var methodsWithAttribute = GetMethodInAttrib(typeof(ConsoleCommand));
+            IEnumerable<MethodInfo> methodsWithAttribute = GetMethodInAttrib(typeof(ConsoleCommand));
 
             foreach (var item in methodsWithAttribute)
             {
                 Attribute c = item.GetCustomAttribute(typeof(ConsoleCommand));
                 ConsoleCommand command = (ConsoleCommand)c;
                 Command[command.CommandName] = item;
+                NameCommands.Add(command.CommandName);
             }
         }
     }
