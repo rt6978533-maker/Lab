@@ -12,6 +12,11 @@ namespace Game.Console
 
         public void Change(string command)
         {
+            if (string.IsNullOrEmpty(command)) {
+                _consoleGraphycs.Clear(); 
+                return;
+            }
+
             IEnumerable<string> commandsHelper = _consoleManager.NameCommands.Where(c => c.StartsWith(command));
 
             _consoleGraphycs.EnterHelpers(commandsHelper);

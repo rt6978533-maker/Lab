@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace Game.Console
 {
-    interface IInputSet { void SetInput(string newText); }
+    public interface IInputSet { void SetInput(string newText); }
 
     [AddComponentMenu("Game/Console/ConsoleGraphics")]
     public class ConsoleGraphics : MonoBehaviour, IInputSet

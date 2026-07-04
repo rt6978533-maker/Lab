@@ -5,14 +5,14 @@ using UnityEngine.UI;
 namespace Game.Console
 {
     [AddComponentMenu("Game/Console/ConsoleRenderPrefab")]
-    public class ConsoleRenderPrefab : MonoBehaviour, IInitializable<string, ConsoleGraphics>
+    public class ConsoleRenderPrefab : MonoBehaviour, IInitializable<string, IInputSet>
     {
         [SerializeField] private Text _text;
 
-        private ConsoleGraphics _consoleGraphics;
+        private IInputSet _consoleGraphics;
         private string _name;
 
-        public void Init(string args1, ConsoleGraphics args2)
+        public void Init(string args1, IInputSet args2)
         {
             _consoleGraphics = args2;
             _name = args1;
