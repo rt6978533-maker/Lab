@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Game.Console
@@ -18,6 +19,7 @@ namespace Game.Console
             if (_inputField == null) return;
 
             _inputField.text = newText;
+            EventSystem.current.SetSelectedGameObject(_inputField.gameObject);
         }
 
         public void Clear() { foreach (Transform child in _content.transform) Destroy(child.gameObject); }

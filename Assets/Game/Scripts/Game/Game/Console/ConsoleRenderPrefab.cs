@@ -11,17 +11,19 @@ namespace Game.Console
 
         private IInputSet _consoleGraphics;
         private string _name;
+        private string _command;
 
         public void Init(string args1, IInputSet args2)
         {
             _consoleGraphics = args2;
             _name = args1;
+            _command = _name.Split(": ")[0];
             _text.text = _name;
         }
 
         public void OnSelect()
         {
-            _consoleGraphics.SetInput(_name);
+            _consoleGraphics.SetInput(_command);
         }
     }
 }

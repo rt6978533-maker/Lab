@@ -1,6 +1,7 @@
+using System;
 using System.Collections.Generic;
-using UnityEngine;
 using System.Linq;
+using UnityEngine;
 
 namespace Game.Console
 {
@@ -10,15 +11,22 @@ namespace Game.Console
         [SerializeField] private ConsoleGraphics _consoleGraphycs;
         [SerializeField] private ConsoleManager _consoleManager;
 
-        public void Change(string command)
+        public void Change(string currentInput)
         {
-            if (string.IsNullOrEmpty(command)) {
+            if (string.IsNullOrEmpty(currentInput)) {
                 _consoleGraphycs.Clear(); 
                 return;
             }
 
-            IEnumerable<string> commandsHelper = _consoleManager.NameCommands.Where(c => c.StartsWith(command));
+            string userInputCommand = currentInput.Split(':', StringSplitOptions.RemoveEmptyEntries)[0].Trim();
 
+            IEnumerable<string> commandsHelper = _consoleManager.NameCommands.Where(template =>
+            {
+                string templateCommandName = template.Split(':', StringSplitOptions.RemoveEmptyEntries)[0].Trim();
+
+                return templateCommandName.StartsWith(userInputCommand, StringComparison.OrdinalIgnoreCase);
+            });
+            
             _consoleGraphycs.EnterHelpers(commandsHelper);
         }
     }

@@ -16,7 +16,6 @@ namespace GaS.Player
             OnAwake();
         }
         protected virtual void OnAwake() { }
-
         protected Vector3 GetDir(Vector2 moveInput)
         {
             Vector3 dir = transform.forward * moveInput.y + transform.right * moveInput.x;
@@ -38,6 +37,8 @@ namespace GaS.Player
             _charactController.SimpleMove(GetDir(moveInput) * _speed * _multipleSprint);
         }
 
+        public void SetSpeed(float speed) { _speed = speed; }
+        public void SetMultipleSprint(float multiple) { _multipleSprint = multiple; }
         public void Teleport(Vector3 newPos)
         {
             if (_charactController == null)
