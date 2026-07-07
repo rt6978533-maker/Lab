@@ -7,7 +7,7 @@ namespace Game
     [AddComponentMenu("Game/DoorsLogic")]
     public class DoorsLogic : MonoBehaviour
     {
-        public UnityEvent Invoke;
+        public UnityEvent InvokeActive;
 
         [SerializeField] private int _counterTest = 2;
         [SerializeField] private bool _multiInvoke = false;
@@ -25,7 +25,7 @@ namespace Game
                 if (!_multiInvoke && _stateInvoke) return;
 
                 _stateInvoke = true;
-                Invoke.Invoke();
+                InvokeActive.Invoke();
             }
         }
 
