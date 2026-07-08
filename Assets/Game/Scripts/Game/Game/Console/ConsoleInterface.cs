@@ -25,7 +25,8 @@ namespace Game.NewConsole
             object[] result = new object[parameters.Length];
 
             for (int i = 0; i < parameters.Length; i++) {
-                result[i] = Convert.ChangeType(value[i], parameters[i].ParameterType);
+                Type type = parameters[i].ParameterType;
+                result[i] = TypeTools.ConvertToT(value[i], type);
             }
 
             return result;

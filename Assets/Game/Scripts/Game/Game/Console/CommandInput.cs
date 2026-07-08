@@ -18,6 +18,10 @@ namespace Game.NewConsole
                 Debug.LogError($"[CommandInput] _inreface is dont exist in GameObject({gameObject.name}).");
                 enabled = false;
             }
+            if (_settings == null) {
+                Debug.LogError($"[CommandInput] _settings is null.");
+                enabled = false;
+            }
         }
 
         private string[] GetParameters(string parameterString)
