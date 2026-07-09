@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 
@@ -11,7 +12,9 @@ namespace Game.NewConsole
     [AddComponentMenu("Game/NewConsole/ConsoleInterface")]
     public class ConsoleInterface : MonoBehaviour, IConsoleMethods
     {
-        [SerializeField] private ConsoleBaked _consoleBaked;
+        [SerializeField] private ConsoleBaker _consoleBaker;
+
+        private Dictionary<Type, object> _targetObjectCache = new();
 
         private object[] ConvertParameters(ParameterInfo[] parameters, string[] value)
         {
@@ -32,14 +35,10 @@ namespace Game.NewConsole
             return result;
         }
 
-        public void Change(string newText)
-        {
-            
-        }
         public void CommandInvoke(string commands, string[] parameters) {
             if (string.IsNullOrEmpty(commands)) return;
 
-            if (_consoleBaked.Commands.TryGetValue(commands, out MethodInfo method)) {
+            if (_consoleBaker.Baked.Commands.TryGetValue(commands, out MethodInfo method)) {
                 object[] objectParameters = ConvertParameters(method.GetParameters(), parameters);
                 if (method.IsStatic) {
                     method.Invoke(null, objectParameters);
@@ -47,10 +46,26 @@ namespace Game.NewConsole
                     Type type = method.DeclaringType;
                     if (type == null) return;
 
-                    object classes = FindAnyObjectByType(type);
-                    method.Invoke(classes, objectParameters);
+                    if (_targetObjectCache.TryGetValue(type, out object obj))
+                    {
+                        method.Invoke(obj, objectParameters);
+                    } else
+                    {
+                        object objFind = FindAnyObjectByType(type);
+                        _targetObjectCache[type] = objFind;
+                        method.Invoke(objFind, objectParameters);
+                    }
                 }
             }
+        }
+
+        public void Change(string newText)
+        {
+            if (_consoleBaker.BakedInfo == null) return;
+
+            List<string> commands = _consoleBaker.BakedInfo.TrieCommands.FinsSuggestions(newText);
+            Debug.LogWarning("Commands: ");
+            foreach (var command in commands) Debug.Log(command);
         }
     }
 }

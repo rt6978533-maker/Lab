@@ -1,9 +1,19 @@
 using System;
+using System.Linq;
+using System.Reflection;
 
 namespace Game.NewConsole
 {
     public static class TypeTools
     {
+        public static void GetMethodInAttributeAssembly<T>(BindingFlags flags, out MethodInfo[] methodInfo) where T : Attribute
+        {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+
+            Type[] classes = assembly.GetTypes();
+            methodInfo = classes.SelectMany(t => t.GetMethods(flags)).Where(m => m.IsDefined(typeof(T))).ToArray();
+        }
+
         public static string GetNameInType(Type type)
         {
             return type switch

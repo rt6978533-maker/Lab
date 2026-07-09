@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a6db7abcf23b644090819452c83226f, type: 3}
   m_Name: ConsoleParseSettings
   m_EditorClassIdentifier: Assembly-CSharp::Game.NewConsole.ParseSettings
-  SuffixCommand: 
-  ArgumentSeparator: 
+  SuffixCommand: ': '
+  ArgumentSeparator: ' ; '
