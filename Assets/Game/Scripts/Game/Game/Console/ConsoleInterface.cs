@@ -13,6 +13,7 @@ namespace Game.NewConsole
     public class ConsoleInterface : MonoBehaviour, IConsoleMethods
     {
         [SerializeField] private ConsoleBaker _consoleBaker;
+        [SerializeField] private ConsoleGraphics _consoleGraphics;
 
         private Dictionary<Type, object> _targetObjectCache = new();
 
@@ -61,11 +62,10 @@ namespace Game.NewConsole
 
         public void Change(string newText)
         {
-            if (_consoleBaker.BakedInfo == null) return;
+            if (_consoleBaker.BakedInfo == null || _consoleGraphics == null) return;
 
-            List<string> commands = _consoleBaker.BakedInfo.TrieCommands.FinsSuggestions(newText);
-            Debug.LogWarning("Commands: ");
-            foreach (var command in commands) Debug.Log(command);
+            List<string> commands = _consoleBaker.BakedInfo.TrieCommands.FindSuggestions(newText);
+            _consoleGraphics.Render(commands);
         }
     }
 }

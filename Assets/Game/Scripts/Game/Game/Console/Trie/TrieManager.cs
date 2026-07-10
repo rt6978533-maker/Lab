@@ -25,7 +25,7 @@ public class TrieManager
         }
     }
 
-    public List<string> FinsSuggestions(ReadOnlySpan<char> prefix)
+    public List<string> FindSuggestions(ReadOnlySpan<char> prefix)
     {
         TrieNode current = _root;
 

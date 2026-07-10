@@ -7,7 +7,7 @@ namespace Game.NewConsole
 {
     public class ConsoleBakedInfo
     {
-        public Dictionary<MethodInfo, string> TextInfoCommand;
+        public Dictionary<string, string> TextInfoCommand;
         public TrieManager TrieCommands;
 
         public ParseSettings ParseSettings;
@@ -41,7 +41,7 @@ namespace Game.NewConsole
                 ConsoleCommand consoleCommand = (ConsoleCommand)attribute;
 
                 TrieCommands.Insert(consoleCommand.CommandName);
-                TextInfoCommand.Add(method, consoleCommand.CommandName + GetInfoMethods(method));
+                TextInfoCommand.Add(consoleCommand.CommandName, consoleCommand.CommandName + GetInfoMethods(method));
             }
         }
     }

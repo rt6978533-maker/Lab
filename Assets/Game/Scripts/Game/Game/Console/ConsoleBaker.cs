@@ -15,7 +15,7 @@ namespace Game.NewConsole
 
         private void Awake()
         {
-            BindingFlags flags = BindingFlags.NonPublic | BindingFlags.Default | BindingFlags.Instance | BindingFlags.Public | BindingFlags.Static;
+            BindingFlags flags = BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public | BindingFlags.Static;
 
             MethodInfo[] methods;
             TypeTools.GetMethodInAttributeAssembly<ConsoleCommand>(flags, out methods);
