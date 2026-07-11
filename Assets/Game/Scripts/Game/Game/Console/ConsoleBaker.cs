@@ -1,9 +1,33 @@
 using Game.Console;
+using System;
 using System.Reflection;
 using UnityEngine;
 
 namespace Game.NewConsole
 {
+    public class BakedInfoConsoleCommand : ConsoleBakedInfo
+    {
+        public override void InsertCommand(MethodInfo method)
+        {
+            Attribute attribute = method.GetCustomAttribute(typeof(ConsoleCommand));
+            ConsoleCommand consoleCommand = (ConsoleCommand)attribute;
+
+            TrieCommands.Insert(consoleCommand.CommandName);
+            TextInfoCommand.Add(consoleCommand.CommandName, consoleCommand.CommandName + GetInfoMethods(method));
+        }
+    }
+
+    public class BakedConsoleCommand : ConsoleBaked
+    {
+        public override void InsertCommand(MethodInfo method)
+        {
+            Attribute attribute = method.GetCustomAttribute(typeof(ConsoleCommand));
+            ConsoleCommand command = (ConsoleCommand)attribute;
+
+            Commands.Add(command.CommandName, method);
+        }
+    }
+
     [AddComponentMenu("Game/NewConsole/ConsoleBaker")]
     public class ConsoleBaker : MonoBehaviour
     {
@@ -20,12 +44,12 @@ namespace Game.NewConsole
             MethodInfo[] methods;
             TypeTools.GetMethodInAttributeAssembly<ConsoleCommand>(flags, out methods);
 
-            Baked = new();
+            Baked = new BakedConsoleCommand();
             Baked.Bake(methods);
 
             if (!_bakedInfoActive) return;
 
-            BakedInfo = new() { ParseSettings = _parseSettings };
+            BakedInfo = new BakedInfoConsoleCommand() { ParseSettings = _parseSettings };
             BakedInfo.Bake(methods);
         }
     }

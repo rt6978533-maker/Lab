@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace Game.NewConsole
 {
@@ -14,6 +15,7 @@ namespace Game.NewConsole
     {
         [SerializeField] private ConsoleBaker _consoleBaker;
         [SerializeField] private ConsoleGraphics _consoleGraphics;
+        [SerializeField] private ConsoleUI _consoleUI;
 
         private Dictionary<Type, object> _targetObjectCache = new();
 
@@ -35,6 +37,17 @@ namespace Game.NewConsole
 
             return result;
         }
+        private void MethodInvoke(MethodInfo method, object obj, object[] parameters) {
+            if (method.ReturnType == typeof(void)) method.Invoke(obj, parameters);
+            else if(method.ReturnType == typeof(string))
+            {
+                object returnValue = method.Invoke(obj, parameters);
+
+                if (_consoleUI == null) return;
+
+                _consoleUI.Say((string)returnValue, Color.white);
+            }
+        }
 
         public void CommandInvoke(string commands, string[] parameters) {
             if (string.IsNullOrEmpty(commands)) return;
@@ -42,19 +55,25 @@ namespace Game.NewConsole
             if (_consoleBaker.Baked.Commands.TryGetValue(commands, out MethodInfo method)) {
                 object[] objectParameters = ConvertParameters(method.GetParameters(), parameters);
                 if (method.IsStatic) {
-                    method.Invoke(null, objectParameters);
+                    MethodInvoke(method, null, objectParameters);
                 } else {
                     Type type = method.DeclaringType;
                     if (type == null) return;
 
                     if (_targetObjectCache.TryGetValue(type, out object obj))
                     {
-                        method.Invoke(obj, objectParameters);
+                        MethodInvoke(method, obj, objectParameters);
                     } else
                     {
                         object objFind = FindAnyObjectByType(type);
+
+                        if (objFind == null)
+                        {
+                            Debug.LogWarning($"[ConsoleInterface][CommandInvoke] {commands}: {nameof(objFind)} not in scene.");
+                            return;
+                        }
                         _targetObjectCache[type] = objFind;
-                        method.Invoke(objFind, objectParameters);
+                        MethodInvoke(method, objFind, objectParameters);
                     }
                 }
             }

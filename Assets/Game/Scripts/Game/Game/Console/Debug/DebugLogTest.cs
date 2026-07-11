@@ -7,9 +7,11 @@ namespace Game.NewConsole
     public class DebugLogTest : MonoBehaviour
     {
         [ConsoleCommand("tte")]
-        public void Test(string text, int id)
+        public string Test(string text, int id)
         {
             Debug.Log(text + id);
+
+            return "Yee!";
         }
     }
 }

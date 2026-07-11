@@ -12,7 +12,7 @@ namespace Game.NewConsole
 
         public ParseSettings ParseSettings;
 
-        private string GetInfoMethods(MethodInfo method)
+        protected string GetInfoMethods(MethodInfo method)
         {
             ParameterInfo[] parameters = method.GetParameters();
             if (parameters.Length == 0) return "";
@@ -35,14 +35,13 @@ namespace Game.NewConsole
             TrieCommands = new();
             TextInfoCommand = new();
 
-            foreach (MethodInfo method in methods)
-            {
-                Attribute attribute = method.GetCustomAttribute(typeof(ConsoleCommand));
-                ConsoleCommand consoleCommand = (ConsoleCommand)attribute;
+            foreach (MethodInfo method in methods) InsertCommand(method);
+        }
 
-                TrieCommands.Insert(consoleCommand.CommandName);
-                TextInfoCommand.Add(consoleCommand.CommandName, consoleCommand.CommandName + GetInfoMethods(method));
-            }
+        public virtual void InsertCommand(MethodInfo method)
+        {
+            TrieCommands.Insert(method.Name);
+            TextInfoCommand.Add(method.Name, method.Name + GetInfoMethods(method));
         }
     }
 }

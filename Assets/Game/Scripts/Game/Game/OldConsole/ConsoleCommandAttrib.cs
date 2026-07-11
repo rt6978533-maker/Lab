@@ -1,4 +1,5 @@
 using System;
+using GaS.Interface;
 
 namespace Game.Console {
     [Flags]
