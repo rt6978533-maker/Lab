@@ -2,17 +2,21 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 namespace Game.NewConsole
 {
-    interface IConsoleChange { void Change(string newText); }
-    interface IConsoleCommandInvoke { void CommandInvoke(string commands, string[] parameters = null); }
-    interface IConsoleMethods : IConsoleCommandInvoke, IConsoleChange { }
+    public interface IConsoleIf { public delegate bool ConsoleAdditionIf(MethodInfo method); public ConsoleAdditionIf ConsoleIF { get; set; } }
+    public interface IConsoleChange { void Change(string newText); }
+    public interface IConsoleCommandInvoke { void CommandInvoke(string commands, string[] parameters = null); }
+    public interface IConsoleMethods : IConsoleCommandInvoke, IConsoleChange, IConsoleIf { }
 
     [AddComponentMenu("Game/NewConsole/ConsoleInterface")]
     public class ConsoleInterface : MonoBehaviour, IConsoleMethods
     {
+        //IConsoleIf
+        public IConsoleIf.ConsoleAdditionIf ConsoleIF { get; set; }
+
+        //Setting
         [SerializeField] private ConsoleBaker _consoleBaker;
         [SerializeField] private ConsoleGraphics _consoleGraphics;
         [SerializeField] private ConsoleUI _consoleUI;
@@ -53,7 +57,10 @@ namespace Game.NewConsole
             if (string.IsNullOrEmpty(commands)) return;
 
             if (_consoleBaker.Baked.Commands.TryGetValue(commands, out MethodInfo method)) {
+                if (ConsoleIF != null && !ConsoleIF.Invoke(method)) return; 
+
                 object[] objectParameters = ConvertParameters(method.GetParameters(), parameters);
+
                 if (method.IsStatic) {
                     MethodInvoke(method, null, objectParameters);
                 } else {
