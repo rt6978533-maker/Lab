@@ -1,9 +1,11 @@
 using System;
+using UnityEngine;
 
-namespace Game.Console {
+namespace Game.NewConsole
+{
     [Flags]
     public enum RequireBinding
-    { 
+    {
         None = 0,  // 00
         Cheats = 1,// 10
         Unsafe = 2,// 01

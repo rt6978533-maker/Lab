@@ -1137,6 +1137,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 923384905}
+  - component: {fileID: 923384908}
   - component: {fileID: 923384906}
   - component: {fileID: 923384902}
   - component: {fileID: 923384904}
@@ -1234,6 +1235,20 @@ MonoBehaviour:
   _prefab: {fileID: 5845902588334729996, guid: d27113e9d84ec554cbad04a44a461d0c, type: 3}
   _content: {fileID: 391411011}
   _baker: {fileID: 923384906}
+--- !u!114 &923384908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923384900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f540d9d5e83834783cd6aef14e150d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.NewConsole.IFConsole
+  IsCheats: 0
+  IsUnsafe: 0
 --- !u!1 &968007393
 GameObject:
   m_ObjectHideFlags: 0
