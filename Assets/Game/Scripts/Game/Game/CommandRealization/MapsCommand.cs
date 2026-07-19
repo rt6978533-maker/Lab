@@ -1,7 +1,8 @@
 using UnityEngine;
+using Game.NewConsole;
 using UnityEngine.SceneManagement;
 
-namespace Game.Console.Command
+namespace Game.CommandRealization
 {
     [AddComponentMenu("Game/Console/Command/MapsCommand")]
     public class MapsCommand : MonoBehaviour

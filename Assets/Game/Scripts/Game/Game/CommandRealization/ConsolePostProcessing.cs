@@ -1,11 +1,11 @@
-using Unity.VisualScripting;
 using UnityEngine;
+using Game.NewConsole;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-namespace Game.Console.Command
+namespace Game.CommandRealization
 {
-    [AddComponentMenu("Game/Console/Command/ConsolePostProcessing")]
+    [AddComponentMenu("Game/CommandRealization/ConsolePostProcessing")]
     public class ConsolePostProcessing : MonoBehaviour
     {
         [SerializeField] private Volume _settings;

@@ -12469,7 +12469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f4bb3b13e2e67c49a3d78a99084afc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.DoorsLogic
-  Invoke:
+  InvokeActive:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 752385937}
@@ -19736,10 +19736,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f4bb3b13e2e67c49a3d78a99084afc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.DoorsLogic
-  Invoke:
+  InvokeActive:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1179305255}
+      - m_Target: {fileID: 752385937}
         m_TargetAssemblyTypeName: Tools.Addition.AnimationMove, Assembly-CSharp
         m_MethodName: Play
         m_Mode: 1

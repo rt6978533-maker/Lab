@@ -1,7 +1,9 @@
 using Game.Player.Target;
+using Game.NewConsole;
 using GaS.Player;
 using UnityEngine;
-namespace Game.Console.Command
+
+namespace Game.CommandRealization
 {
     public class PlayerCommand : MonoBehaviour
     {

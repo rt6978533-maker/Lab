@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Game.NewConsole;
 
-namespace Game.Console.Command
+namespace Game.CommandRealization
 {
     [AddComponentMenu("Game/Console/Command/ConsoleScene")]
     public class ConsoleSceneCommand : MonoBehaviour

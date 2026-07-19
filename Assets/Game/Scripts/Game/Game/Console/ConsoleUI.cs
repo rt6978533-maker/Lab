@@ -21,5 +21,8 @@ namespace Game.NewConsole
 
         [ConsoleCommand("clear")]
         public void Clear() { foreach (Transform t in _content.transform) Destroy(t.gameObject); }
+
+        [ConsoleCommand("say")]
+        public void CmdSay(string message) { Say(message, Color.white); }
     }
 }

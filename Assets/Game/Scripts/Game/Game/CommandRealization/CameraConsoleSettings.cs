@@ -1,9 +1,9 @@
-using Unity.VisualScripting;
 using UnityEngine;
+using Game.NewConsole;
 
-namespace Game.Console.Command
+namespace Game.CommandRealization
 {
-    [AddComponentMenu("Game/Console/Command/CameraConsoleSettings")]
+    [AddComponentMenu("Game/CommandRealization/CameraConsoleSettings")]
     public class CameraConsoleSettings : MonoBehaviour
     {
         [SerializeField] private Camera _camera;
