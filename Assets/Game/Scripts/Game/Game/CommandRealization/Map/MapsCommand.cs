@@ -7,9 +7,7 @@ namespace Game.CommandRealization
     [AddComponentMenu("Game/Console/Command/MapsCommand")]
     public class MapsCommand : MonoBehaviour
     {
-
-
-        private int _nextLevel, _backLevel;
+        [SerializeField] private int _nextLevel, _backLevel;
 
         [ConsoleCommand("mp_restart")]
         public void Restart()

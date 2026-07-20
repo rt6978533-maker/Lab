@@ -1413,6 +1413,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1525222065798859787}
+  - component: {fileID: 8364626764118054538}
   - component: {fileID: 3567946503921412090}
   - component: {fileID: 3361708785970529124}
   - component: {fileID: 3394023881122543629}
@@ -1420,6 +1421,8 @@ GameObject:
   - component: {fileID: 7352131831266058398}
   - component: {fileID: 3760357815978794960}
   - component: {fileID: 3922367623634226847}
+  - component: {fileID: 4032993295062353372}
+  - component: {fileID: 8233486708793726996}
   m_Layer: 0
   m_Name: ConsoleManager
   m_TagString: Untagged
@@ -1442,6 +1445,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 638971814598567974}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8364626764118054538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2428988978949385860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f540d9d5e83834783cd6aef14e150d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.NewConsole.IFConsole
+  IsCheats: 0
+  IsUnsafe: 0
 --- !u!114 &3567946503921412090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1581,6 +1598,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fa9e06c9dbe7114a8c8fb87827064a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tools.Addition.SelectUIObject
+--- !u!114 &4032993295062353372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2428988978949385860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45809771b8b992840b1fff316244ea64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.CommandRealization.ConsoleSceneCommand
+--- !u!114 &8233486708793726996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2428988978949385860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf7cb1a6e174af648915152b1e7b5c81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.CommandRealization.CommandDefault
+  _baker: {fileID: 3567946503921412090}
 --- !u!1 &2523917283324775535
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,15 +24,19 @@ namespace Game.CommandRealization
         }
 
         [ConsoleCommand("postprocessing-bloom")]
-        public void Bloom(float intensity) {
-            if (_bloom == null) return;
+        public string Bloom(float intensity) {
+            if (_bloom == null) return "[ConsolePostProcessing] _bloom is null pls check in editor.";
             _bloom.intensity.value = intensity;
+
+            return "Postprocessing-Bloom intensity: " + intensity;
         }
 
-        [ConsoleCommand("postprocessing-Lens_Distortion")]
-        public void LensDistortion(float intensity) {
-            if (_lensDistortion == null) return;
+        [ConsoleCommand("postprocessing-lens_Distortion")]
+        public string LensDistortion(float intensity) {
+            if (_lensDistortion == null) return "[ConsolePostProcessing] _lensDistortion is null pls check in editor.";
             _lensDistortion.intensity.value = intensity;
+
+            return "Postprocessing-Lens_Distortion intensity: " + intensity;
         }
     }
 }

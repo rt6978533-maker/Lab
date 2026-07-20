@@ -1,11 +1,10 @@
-using Game.Console;
-using System;
 using System.Collections.Generic;
 using System.Reflection;
 
 namespace Game.NewConsole {
     public class ConsoleBaked
     {
+        public int Length = 0;
         public Dictionary<string, MethodInfo> Commands;
 
         public void Bake(MethodInfo[] methods)
@@ -15,6 +14,6 @@ namespace Game.NewConsole {
             foreach (var methodAttribute in methods) InsertCommand(methodAttribute); 
         }
 
-        public virtual void InsertCommand(MethodInfo method) => Commands.Add(method.Name, method); 
+        public virtual void InsertCommand(MethodInfo method) { Commands.Add(method.Name, method); Length++; }
     }
 }

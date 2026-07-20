@@ -22220,9 +22220,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1378326314}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45809771b8b992840b1fff316244ea64, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c5eb522c95964140a4353265621465f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Game.Console.Command.ConsoleSceneCommand
+  m_EditorClassIdentifier: Assembly-CSharp::Game.CommandRealization.MapsCommand
+  _nextLevel: 1
+  _backLevel: 0
 --- !u!1 &1380624886
 GameObject:
   m_ObjectHideFlags: 0
