@@ -12,7 +12,7 @@ namespace Game
         [SerializeField] private int _counterTest = 2;
         [SerializeField] private bool _multiInvoke = false;
 
-        private int _counterActive = 0;
+        [SerializeField] private int _counterActive = 0;
 
         private bool _stateInvoke = false;
 

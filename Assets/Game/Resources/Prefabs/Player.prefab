@@ -2529,7 +2529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Player.Weapon.Flashlight.FlashLightData
   Energy: 100
   MaxEnergy: 100
-  _energyRate: 10
+  _energyRate: 5
 --- !u!1 &4596966746056987415
 GameObject:
   m_ObjectHideFlags: 0

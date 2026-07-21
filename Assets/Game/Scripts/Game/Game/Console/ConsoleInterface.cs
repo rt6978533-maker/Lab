@@ -90,7 +90,9 @@ namespace Game.NewConsole
         {
             if (_consoleBaker.BakedInfo == null || _consoleGraphics == null) return;
 
-            List<string> commands = _consoleBaker.BakedInfo.TrieCommands.FindSuggestions(newText);
+            string[] s = newText.Split(':');
+
+            List<string> commands = _consoleBaker.BakedInfo.TrieCommands.FindSuggestions(s[0]);
             _consoleGraphics.Render(commands);
         }
     }
