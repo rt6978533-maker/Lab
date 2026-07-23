@@ -19,9 +19,9 @@ namespace Game.NewConsole
         private bool Test(ConsoleCommand command)
         { 
             if (command.Require.HasFlag(RequireBinding.None)) return true;
+            else if (command.Require.HasFlag(RequireBinding.Cheats | RequireBinding.Unsafe)) return IsCheats & IsUnsafe;
             else if (command.Require.HasFlag(RequireBinding.Cheats)) return IsCheats;
             else if (command.Require.HasFlag(RequireBinding.Unsafe)) return IsUnsafe;
-            else if (command.Require.HasFlag(RequireBinding.Cheats | RequireBinding.Unsafe)) return IsCheats & IsUnsafe;
 
             return false;
         }
