@@ -16,9 +16,9 @@ namespace Game.Notes
 
         [Header("Visuals")]
         /// <summary>
-        /// Visual texture associated with the note.
+        /// Visual sprite associated with the note.
         /// </summary>
         [Tooltip("Visual texture associated with the note.")]
-        public Texture2D Texture;
+        public Sprite Texture;
     }
 }
