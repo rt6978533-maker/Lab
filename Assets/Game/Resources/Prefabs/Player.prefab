@@ -2831,15 +2831,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GridLayoutGroup
   m_Padding:
-    m_Left: 7
+    m_Left: 193
     m_Right: 0
-    m_Top: 7
+    m_Top: 244
     m_Bottom: 0
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 400, y: 600}
-  m_Spacing: {x: 7, y: 0}
+  m_CellSize: {x: 200, y: 400}
+  m_Spacing: {x: 50, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!1 &3966024280817313366
@@ -4434,7 +4434,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4764717963746011199}
   m_HandleRect: {fileID: 5211026248308716678}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

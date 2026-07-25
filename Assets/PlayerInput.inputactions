@@ -86,6 +86,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Note",
+                    "type": "Button",
+                    "id": "5c213a7f-9b5f-4e1e-8500-d920d7395200",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -229,6 +238,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Console",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "34e9421c-584c-491a-a31e-b56fae1484d0",
+                    "path": "<Keyboard>/t",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Note",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

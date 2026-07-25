@@ -4,6 +4,8 @@ namespace Game.Player.ItemsPickUp
 {
     public abstract class Items : MonoBehaviour, IItemsPickUp
     {
+        [Header("Settings Items")]
+
         [Min(1.0f)]
         public float DistanceInteract = 7;
 
