@@ -452,7 +452,7 @@ Transform:
   m_GameObject: {fileID: 17501000}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: 6}
+  m_LocalPosition: {x: -23, y: 0, z: 13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -472,6 +472,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Notes.InteractableNotes
   DistanceInteract: 7
   IsEnable: 1
+  _notesAchievement: {fileID: 1371373279}
+  ID: 0
   _noteData: {fileID: 11400000, guid: 72e71004673f3f640a53de4cae7cc825, type: 2}
 --- !u!1 &26573950
 GameObject:
@@ -9031,6 +9033,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Notes.InteractableNotes
   DistanceInteract: 7
   IsEnable: 1
+  _notesAchievement: {fileID: 1371373279}
+  ID: 1
   _noteData: {fileID: 11400000, guid: 7d5ded66bfee4494d9e1614a69d7154a, type: 2}
 --- !u!65 &1258557858
 BoxCollider:
@@ -9119,7 +9123,7 @@ Transform:
   m_GameObject: {fileID: 1258557856}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 7}
+  m_LocalPosition: {x: 12, y: 0, z: 27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9915,6 +9919,50 @@ Transform:
   - {fileID: 1908338939}
   - {fileID: 1384028324}
   m_Father: {fileID: 772865966}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1371373278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1371373280}
+  - component: {fileID: 1371373279}
+  m_Layer: 0
+  m_Name: Achievement
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1371373279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371373278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44028092a4211da468f32bb1335a1e62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Achievement.FindAllNotes
+--- !u!4 &1371373280
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371373278}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.89996, y: 0, z: 32.52667}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1376518613
 GameObject:
@@ -14789,3 +14837,4 @@ SceneRoots:
   - {fileID: 17501004}
   - {fileID: 429117108}
   - {fileID: 1258557861}
+  - {fileID: 1371373280}
