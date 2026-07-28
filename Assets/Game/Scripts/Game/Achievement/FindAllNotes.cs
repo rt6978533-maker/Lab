@@ -1,32 +1,34 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Game.Achievement
 {
-    public class FindAllNotes : Achievement
+    public class FindAllNotes : Achievement<byte>
     {
-        public static byte OneBit = 0b10000000, AllBit = 0b11111111;
-
-        public byte FindCount { get; private set; }
+        public const int IDAchievement = 1;
+        public static byte OneBit = 0b00000001, AllBit = 0b11111111;
 
         private void Start()
         {
-            FindCount = (byte)PlayerPrefs.GetInt("Achievement_FindAllNotes_Count", 0);
-            Debug.Log(FindCount);
+            Value = (byte)PlayerPrefs.GetInt("Achievement_FindAllNotes_Count", 0);
+            Debug.Log(Value);
         }
 
         private void UpdateLogic()
         {
-            PlayerPrefs.SetInt("Achievement_FindAllNotes_Count", FindCount);
+            PlayerPrefs.SetInt("Achievement_FindAllNotes_Count", Value);
 
-            //if ((FindCount & AllBit) == AllBit)
+            if (Value == 255) {
+                AddAchievement(IDAchievement);
+            }
         }
 
-        public void AddCount(int id)
+        public override void Invoke(byte id)
         {
             if (id > 7) { throw new System.ArgumentOutOfRangeException("The id, сannot exceed 7."); }
 
-            if (((FindCount << id) & OneBit) == OneBit) return;
-            else FindCount = (byte)(FindCount | (OneBit >> id));
+            if (((Value >> id) & OneBit) == OneBit) return;
+            else Value = (byte)(Value | (OneBit << id));
 
             UpdateLogic();
         }

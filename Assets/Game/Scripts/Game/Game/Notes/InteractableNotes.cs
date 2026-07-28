@@ -14,7 +14,8 @@ namespace Game
             private FindAllNotes _notesAchievement;
 
             [SerializeField]
-            private int ID;
+            [Range(0, 7)]
+            private byte ID;
 
             [Header("Reference")]
             [SerializeField]
@@ -25,7 +26,7 @@ namespace Game
                 if (plr.TryGetComponent(out IPickUpNotes notesInterface))
                 {
                     if (_noteData != null) {
-                        _notesAchievement?.AddCount(ID);
+                        _notesAchievement?.Invoke(ID);
                         notesInterface.AddNote(_noteData);
                     }
                     else { Debug.LogError("[InteractableNotes] _noteData is null."); }
