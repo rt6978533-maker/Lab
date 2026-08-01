@@ -30,6 +30,9 @@ MonoBehaviour:
     m_path: Assets/Game/Scenes/Addition/MapChapterOneLevelTwo.unity
     m_guid: 4a205825e497cc34f81400f1b704b209
   - m_enabled: 1
+    m_path: Assets/Game/Scenes/Addition/MapChapterOneLevelThree.unity
+    m_guid: 2801d8024e19eda4f88d37fe03d25ef3
+  - m_enabled: 1
     m_path: Assets/Game/Scenes/ExampleScene.unity
     m_guid: 439ac639f4653bd4e9ac850dbf3c49ff
   m_HasScriptingDefines: 0
