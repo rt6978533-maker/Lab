@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Game.Player
 {
     [AddComponentMenu("Game/Player/PlayerController")]
-    public class PlayerController : PlayerCharacterController, IInitializable<PlayerInputSystem>
+    public partial class PlayerController : PlayerCharacterController, IInitializable<PlayerInputSystem>
     {
         [Header("Look settings")]
         [SerializeField] private float _sensitivity = 1;
@@ -45,18 +45,6 @@ namespace Game.Player
             _move = move;
             _look = look;
             _sprint = sprint;
-        }
-        public void Enable()
-        {
-            _move?.Enable();
-            _look?.Enable();
-            _sprint?.Enable();
-        }
-        public void Disable()
-        {
-            _move?.Disable();
-            _look?.Disable();
-            _sprint?.Disable();
         }
 
         private void LookController(Vector2 lookInput)
