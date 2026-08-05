@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace Game.Player
 {
     public partial class PlayerController
@@ -7,7 +5,7 @@ namespace Game.Player
         public void EnableMove() => _move.Enable();
         public void DisableMove() => _move.Enable();
         public void EnableLook() => _look.Enable();
-        public void DisableLook() => _look.Enable();
+        public void DisableLook() => _look.Disable();
 
         public void Enable()
         {

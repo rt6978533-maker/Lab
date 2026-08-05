@@ -1168,6 +1168,7 @@ GameObject:
   - component: {fileID: 6428360273330487236}
   - component: {fileID: 8000299560412460015}
   - component: {fileID: 5916263095363202873}
+  - component: {fileID: 3785149195355656559}
   - component: {fileID: 7230375508521216378}
   - component: {fileID: 8843386245717258979}
   - component: {fileID: 8242176401445147692}
@@ -1303,6 +1304,20 @@ MonoBehaviour:
   - {fileID: 8783162936770911443, guid: 2edd5087b334135449cfbda96ede3b46, type: 3}
   - {fileID: 5410462153927846936, guid: 1ae7ca2b4c175ca4a904e8e9b3d158fb, type: 3}
   _playerCharacterController: {fileID: 8242176401445147692}
+--- !u!114 &3785149195355656559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816164322909457834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7163cd3e1514ffe4692ec2fdbd294ccb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Player.UIState.UIStateManager
+  _characterController: {fileID: 8242176401445147692}
+  _cursorManager: {fileID: -4767528263648020361}
 --- !u!114 &7230375508521216378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3228,6 +3243,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5290977461211313573}
   - component: {fileID: 5271680322087960552}
+  - component: {fileID: 343127469072720189}
   - component: {fileID: 7108934478782892931}
   m_Layer: 0
   m_Name: Pause
@@ -3302,6 +3318,19 @@ MonoBehaviour:
   OnStarted:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &343127469072720189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5992940048820772644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fed9824d834e28846a39e79164beb078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Player.UIState.Pause
+  _uiStateManager: {fileID: 3785149195355656559}
 --- !u!114 &7108934478782892931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3318,49 +3347,13 @@ MonoBehaviour:
   Q1:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8242176401445147692}
-        m_TargetAssemblyTypeName: Game.Player.PlayerController, Assembly-CSharp
-        m_MethodName: Disable
-        m_Mode: 1
+      - m_Target: {fileID: 343127469072720189}
+        m_TargetAssemblyTypeName: Game.Player.UIState.Pause, Assembly-CSharp
+        m_MethodName: EnablePause
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1162484326363006761}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 2868746564982051142}
-        m_TargetAssemblyTypeName: Tools.Default.CursorManager, Assembly-CSharp
-        m_MethodName: SetCursor
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 7846979091550020791}
-        m_TargetAssemblyTypeName: Tools.Default.TimeManager, Assembly-CSharp
-        m_MethodName: SetTime
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1162484326363006761}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3381,46 +3374,10 @@ MonoBehaviour:
   Q2:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8242176401445147692}
-        m_TargetAssemblyTypeName: Game.Player.PlayerController, Assembly-CSharp
-        m_MethodName: Enable
+      - m_Target: {fileID: 343127469072720189}
+        m_TargetAssemblyTypeName: Game.Player.UIState.Pause, Assembly-CSharp
+        m_MethodName: DisablePause
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1162484326363006761}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: -4767528263648020361}
-        m_TargetAssemblyTypeName: Tools.Default.CursorManager, Assembly-CSharp
-        m_MethodName: SetCursor
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 7846979091550020791}
-        m_TargetAssemblyTypeName: Tools.Default.TimeManager, Assembly-CSharp
-        m_MethodName: SetTime
-        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

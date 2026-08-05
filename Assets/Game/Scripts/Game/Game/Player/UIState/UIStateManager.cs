@@ -1,4 +1,5 @@
 using System;
+using Tools.Default;
 using UnityEngine;
 
 namespace Game.Player.UIState
@@ -10,25 +11,37 @@ namespace Game.Player.UIState
     {
         public UIStateContext currentState { get; private set; }
 
-        private void UpdateUI() {
-            currentState.UIContent.SetActive(true);
-            
+        [SerializeField]
+        private PlayerController _characterController;
+
+        [SerializeField]
+        private CursorManager _cursorManager;
+
+        private void UpdateUI(GameObject uiDisable, GameObject uiEnable) {
+            uiDisable?.SetActive(false);
+            uiEnable?.SetActive(true);
         }
 
-        private void UpdateLogic() {
+        private void UpdateLogic(UIBehaviorFlags flags) {
+            bool blockeMove = (flags & UIBehaviorFlags.BlockMove) != 0;
+            bool blockeLook = (flags & UIBehaviorFlags.BlockLook) != 0;
+            bool showCursor = (flags & UIBehaviorFlags.ShowCursor) != 0;
+            bool unlockedCursor = (flags & UIBehaviorFlags.UnlockedCursor) != 0;
+            bool freezeTime = (flags & UIBehaviorFlags.FreezeTime) != 0;
 
+            _characterController.Enable();
+            Time.timeScale = freezeTime ? 0 : 1;
+            _cursorManager.SetCursor(unlockedCursor ? CursorLockMode.None : CursorLockMode.Locked, showCursor);
+
+            if (blockeMove) _characterController.DisableMove();
+            if (blockeLook) _characterController.DisableLook();
         }
 
         public void SetState(UIStateContext context)
         {
-            if (!context.IsValid)
-            { Debug.LogError("[UIStateManager][SetState] context has not validate."); return; }
-
-            if (currentState.IsValid) currentState.UIContent.SetActive(false);
-
+            UpdateUI(currentState.UIContent, context.UIContent);
             currentState = context;
-            UpdateLogic();
-            UpdateUI();
+            UpdateLogic(context.BehaviorFlags);
         }
     }
 }

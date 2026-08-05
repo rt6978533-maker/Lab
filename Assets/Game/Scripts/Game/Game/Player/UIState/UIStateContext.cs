@@ -11,6 +11,8 @@ namespace Game.Player.UIState
         BlockMove = 1 << 0,
         BlockLook = 1 << 1,
         ShowCursor = 1 << 2,
+        UnlockedCursor = 1 << 3,
+        FreezeTime = 1 << 4,
     }
 
     public readonly struct UIStateContext
